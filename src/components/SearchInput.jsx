@@ -1,6 +1,8 @@
+import React from "react";
+
 function SearchInput({func,value, textInput, textInputFocus}) {
 
-    //console.log(value);
+    console.log(`---SearchInput---`);
     
 
     return (
@@ -8,4 +10,4 @@ function SearchInput({func,value, textInput, textInputFocus}) {
     )
 }
 
-export default SearchInput;
+export default React.memo(SearchInput);

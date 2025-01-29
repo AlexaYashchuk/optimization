@@ -1,4 +1,9 @@
-function CounterButton ({func,count}) {
+import React from "react";
+
+const CounterButton = React.memo(({func,count}) => {
+
+console.log(`---CounterButton---`);
+    
 
     return (
         <>
@@ -7,6 +12,6 @@ function CounterButton ({func,count}) {
         </>
     )
 
-}
+})
 
-export default CounterButton
+export default CounterButton;

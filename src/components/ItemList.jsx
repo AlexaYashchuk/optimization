@@ -1,11 +1,16 @@
+import React from "react";
+
 function ItemList({text}) {
 
-    const list = [`Sasha`,`Pasha`,`Sveta`,1,2,3,4,`Kolya`,`Kirill`,`Andrey`,`Pasha`,7,5,3,1,2]
+    const list = [`Sasha`,`Pasha`,`Sveta`,1,2,3,4,`Kolya`,`Kirill`,`Andrey`,`Pasha`,7,5,3,1,2,`Sasha`,`Pasha`,`Sveta`,1,2,3,4,`Kolya`,`Kirill`,`Andrey`,`Pasha`,7,5,3,1,2
+    ]
 
     const newList = [...list]
 
     const result = newList.filter((item => item == text));
-    console.log(result);
+    //console.log(result);
+    console.log(`---ItemList---`);
+    
     
 
 
@@ -35,4 +40,4 @@ function ItemList({text}) {
         </>
     )
 }
-export default ItemList
+export default React.memo(ItemList);
