@@ -3,6 +3,8 @@ import './App.css'
 import CounterButton from './components/CounterButton'
 import SearchInput from './components/SearchInput'
 import ItemList from './components/ItemList'
+import MyContex from './context/MyContex'
+import MyContextProvider from './context/MyContextProvider'
 
 function App() {
 
@@ -30,14 +32,38 @@ function App() {
   
 
 
+  const [isChecked, setIsChecked] = useState(false);
+
+  const checkboxChange = () => {
+    setIsChecked(prevState => !prevState);
+};
+
 
   return (
     <>
-    <CounterButton func={increment} count = {count}/>
-    <hr/>
-    <SearchInput func = {searchWord} value = {text} textInput={textInput} textInputFocus= {textInputFocus}/>
-    <ItemList text = {text}/>
+       <MyContextProvider>
+            <MyContex.Consumer>
+                {({ dark, toggleTheme }) => (
+                    <>
+                        <p>Сменить тему</p>
+                        <input
+                            type='checkbox'
+                            checked={dark}
+                            onChange={toggleTheme} // Используем функцию из контекста
+                        />
+                        <div className={`contexTheme ${dark ? 'dark' : 'light'}`}>
+                            <CounterButton func={increment} count={count} />
+                            <hr />
+                            <SearchInput func={searchWord} value={text} textInput={textInput} textInputFocus={textInputFocus} />
+                            <ItemList text={text} />
+                        </div>
+                    </>
+                )}
+            </MyContex.Consumer>
+        </MyContextProvider>
+
     </>
+
   )
 }
 

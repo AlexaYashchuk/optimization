@@ -1,4 +1,4 @@
-:root {
+/* :root {
   font-family: Inter, system-ui, Avenir, Helvetica, Arial, sans-serif;
   line-height: 1.5;
   font-weight: 400;
@@ -12,6 +12,10 @@
   -webkit-font-smoothing: antialiased;
   -moz-osx-font-smoothing: grayscale;
 }
+[dark] {
+  background-color: #1a1a1a;
+  color: red;
+}
 
 a {
   font-weight: 500;
@@ -21,15 +25,26 @@ a {
 a:hover {
   color: #535bf2;
 }
-
-body {
-  margin: 0;
+*/
+.contexTheme.light {
+  /* margin: 0;
   display: flex;
   place-items: center;
   min-width: 320px;
-  min-height: 100vh;
+  min-height: 100vh; */
+  background-color: rgb(225, 219, 219);
 }
 
+.contexTheme.dark {
+  /* margin: 0;
+  display: flex;
+  place-items: center;
+  min-width: 320px;
+  min-height: 100vh; */
+  color: white;
+  background-color: rgb(95, 89, 89);
+}
+/*
 h1 {
   font-size: 3.2em;
   line-height: 1.1;
@@ -53,7 +68,7 @@ button:focus,
 button:focus-visible {
   outline: 4px auto -webkit-focus-ring-color;
 }
-
+/*
 @media (prefers-color-scheme: light) {
   :root {
     color: #213547;
@@ -65,4 +80,4 @@ button:focus-visible {
   button {
     background-color: #f9f9f9;
   }
-}
+} */
