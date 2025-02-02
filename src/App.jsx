@@ -1,5 +1,6 @@
 import { useState, useRef, useCallback } from 'react'
 import './App.css'
+import dayNight from '../public/dayNight.svg'
 import CounterButton from './components/CounterButton'
 import SearchInput from './components/SearchInput'
 import ItemList from './components/ItemList'
@@ -28,15 +29,9 @@ function App() {
     textInput.current.focus()
   },[]);
 
-  console.log(`---App---`);
+  // console.log(`---App---`);
   
-
-
-  const [isChecked, setIsChecked] = useState(false);
-
-  const checkboxChange = () => {
-    setIsChecked(prevState => !prevState);
-};
+  // const { dark, toggleTheme } = useContext(MyContex);
 
 
   return (
@@ -45,12 +40,17 @@ function App() {
             <MyContex.Consumer>
                 {({ dark, toggleTheme }) => (
                     <>
-                        <p>Сменить тему</p>
-                        <input
+                        {/* <p>Сменить тему</p> */}
+                        <img src={dayNight} alt="logoDayOrNight" className='dayNightLogo' />
+                        <label className='switch'>
+                            <input className='switch__input'
                             type='checkbox'
                             checked={dark}
-                            onChange={toggleTheme} // Используем функцию из контекста
+                            onChange={toggleTheme} //ф-я из контекста
                         />
+                        <span className='switch__slider'></span>
+                        </label>
+
                         <div className={`contexTheme ${dark ? 'dark' : 'light'}`}>
                             <CounterButton func={increment} count={count} />
                             <hr />

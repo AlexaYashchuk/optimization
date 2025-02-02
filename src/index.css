@@ -1,83 +1,73 @@
-/* :root {
-  font-family: Inter, system-ui, Avenir, Helvetica, Arial, sans-serif;
-  line-height: 1.5;
-  font-weight: 400;
-
-  color-scheme: light dark;
-  color: rgba(255, 255, 255, 0.87);
-  background-color: #242424;
-
-  font-synthesis: none;
-  text-rendering: optimizeLegibility;
-  -webkit-font-smoothing: antialiased;
-  -moz-osx-font-smoothing: grayscale;
-}
-[dark] {
-  background-color: #1a1a1a;
-  color: red;
+.switch {
+  display: inline-block;
+  position: relative;
+  width: 60px;
+  height: 30px;
+  /* background-color: red; */
+  border-radius: 40px;
+  
 }
 
-a {
-  font-weight: 500;
-  color: #646cff;
-  text-decoration: inherit;
+/*скрыть стагдарное изображение чекбокса  */
+.switch__input {
+  height: 0;
+  width: 0;
+  opacity: 0;
 }
-a:hover {
-  color: #535bf2;
+
+
+.switch__slider {
+position: absolute;
+/* cursor: pointer; */
+top: 0;
+left: 0;
+bottom: 0;
+right: 0;
+border-radius: 40px;
+
+background-color: rgb(231, 219, 59);
 }
-*/
+
+.switch__slider::before {
+  content: "";
+  position: absolute;
+  /* cursor: pointer; */
+  top: 4px;
+  left: 4px;
+  bottom: 4px;
+  right: 25px;
+  width: 25px;
+  border-radius: 50px;
+  background-color:rgb(190, 212, 232);
+  transition: .9s;
+  }
+
+  /* .switch__input:focus + .switch__slider {
+    box-shadow: 0 0 5 px blue;
+  } */
+  .switch__input:checked + .switch__slider {
+    background-color: rgb(102, 102, 102);
+  }
+  .switch__input:checked + .switch__slider::before {
+    transform: translateX(28px);
+  }
+
+
 .contexTheme.light {
-  /* margin: 0;
-  display: flex;
-  place-items: center;
-  min-width: 320px;
-  min-height: 100vh; */
   background-color: rgb(225, 219, 219);
+  color: black;
 }
 
 .contexTheme.dark {
-  /* margin: 0;
-  display: flex;
-  place-items: center;
-  min-width: 320px;
-  min-height: 100vh; */
   color: white;
   background-color: rgb(95, 89, 89);
 }
-/*
-h1 {
-  font-size: 3.2em;
-  line-height: 1.1;
-}
 
-button {
-  border-radius: 8px;
-  border: 1px solid transparent;
-  padding: 0.6em 1.2em;
-  font-size: 1em;
-  font-weight: 500;
-  font-family: inherit;
-  background-color: #1a1a1a;
-  cursor: pointer;
-  transition: border-color 0.25s;
+.dayNightLogo {
+  width: 5em;
+  height: 5em;
+  margin-bottom: 1em;
+  display: block; 
+  margin-left: auto;  
+  margin-right: auto 
 }
-button:hover {
-  border-color: #646cff;
-}
-button:focus,
-button:focus-visible {
-  outline: 4px auto -webkit-focus-ring-color;
-}
-/*
-@media (prefers-color-scheme: light) {
-  :root {
-    color: #213547;
-    background-color: #ffffff;
-  }
-  a:hover {
-    color: #747bff;
-  }
-  button {
-    background-color: #f9f9f9;
-  }
-} */
