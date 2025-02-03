@@ -1,17 +1,14 @@
 import React from "react";
 
-const CounterButton = React.memo(({func,count}) => {
+export const CounterButton = React.memo(({ func, count }) => {
+  //console.log(`---CounterButton---`);
 
-console.log(`---CounterButton---`);
-    
+  return (
+    <>
+      <p>{count}</p>
+      <button onClick={func}>COUNTER</button>
+    </>
+  );
+});
 
-    return (
-        <>
-        <p>{count}</p>
-         <button onClick={func}>COUNTER</button>
-        </>
-    )
-
-})
-
-export default CounterButton;
+//export default CounterButton;
