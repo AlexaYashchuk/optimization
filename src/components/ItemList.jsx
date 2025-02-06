@@ -39,8 +39,6 @@ export const ItemList = React.memo(({ text }) => {
   const newList = [...list];
 
   const result = newList.filter((item) => item == text);
-  //console.log(result);
-  //console.log(`---ItemList---`);
 
   return (
     <>
@@ -60,4 +58,3 @@ export const ItemList = React.memo(({ text }) => {
     </>
   );
 });
-//export default React.memo(ItemList);

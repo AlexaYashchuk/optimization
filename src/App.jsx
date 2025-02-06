@@ -24,16 +24,12 @@ function App() {
     textInput.current.focus();
   }, []);
 
-  //console.log(`---App---`);
-  // const { dark, toggleTheme } = useContext(MyContex);
-
   return (
     <>
       <ProviderTheme>
         <ContextTheme.Consumer>
           {({ dark, toggleTheme }) => (
             <>
-              {/* <p>Сменить тему</p> */}
               <img
                 src={dayNight}
                 alt="logoDayOrNight"
