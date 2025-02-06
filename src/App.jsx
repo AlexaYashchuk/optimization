@@ -1,11 +1,10 @@
-import { useState, useRef, useCallback } from "react";
+import { useState, useRef, useCallback, useContext } from "react";
 import "./App.css";
 import dayNight from "../public/dayNight.svg";
 import { CounterButton } from "./components/CounterButton";
 import { SearchInput } from "./components/SearchInput";
 import { ItemList } from "./components/ItemList";
 import { ContextTheme } from "./context/ContextTheme";
-import { ProviderTheme } from "./context/ProviderTheme";
 
 function App() {
   const [count, setCount] = useState(0);
@@ -24,44 +23,34 @@ function App() {
     textInput.current.focus();
   }, []);
 
+  const { dark, toggleTheme } = useContext(ContextTheme);
+
   return (
     <>
-      <ProviderTheme>
-        <ContextTheme.Consumer>
-          {({ dark, toggleTheme }) => (
-            <>
-              <img
-                src={dayNight}
-                alt="logoDayOrNight"
-                className="dayNightLogo"
-              />
-              <label className="switch">
-                <input
-                  className="switch__input"
-                  type="checkbox"
-                  checked={dark}
-                  onChange={toggleTheme} //ф-я из контекста
-                />
-                <span className="switch__slider"></span>
-              </label>
+      <img src={dayNight} alt="logoDayOrNight" className="dayNightLogo" />
+      <label className="switch">
+        <input
+          className="switch__input"
+          type="checkbox"
+          checked={dark}
+          onChange={toggleTheme}
+        />
+        <span className="switch__slider"></span>
+      </label>
 
-              <div className={`contexTheme ${dark ? "dark" : "light"}`}>
-                <CounterButton func={increment} count={count} />
-                <hr />
-                <SearchInput
-                  func={searchWord}
-                  value={text}
-                  textInput={textInput}
-                  textInputFocus={textInputFocus}
-                />
-                <ItemList text={text} />
-              </div>
-            </>
-          )}
-        </ContextTheme.Consumer>
-      </ProviderTheme>
+      <div className={`contexTheme ${dark ? "dark" : "light"}`}>
+        <CounterButton func={increment} count={count} />
+        <hr />
+        <SearchInput
+          func={searchWord}
+          value={text}
+          textInput={textInput}
+          textInputFocus={textInputFocus}
+        />
+        <ItemList text={text} />
+      </div>
     </>
   );
 }
 
-export default App;
+export { App };
